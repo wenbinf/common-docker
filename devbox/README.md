@@ -9,10 +9,10 @@ In docker hub:
 Run it:
 
     # Optional command line arguments:
-    #   -v ~/src:/root/src It'll map ~/src on local host to /root/src in the devbox container.
+    #   -v ~/src:/root/src It'll map ~/src on local host to /root/src in the container.
     #                      So you can put your source code inside ~/src.
     #   --link memcached:memcached It'll link memcached container to this devbox container.
-    #                              See /etc/hosts inside devbox container for the hostname/ip.
+    #                              See /etc/hosts inside devbox container for hostname/ip.
     docker run -d --name devbox -v ~/src:/root/src -p 22 wenbinf/devbox
 
 SSH into it:

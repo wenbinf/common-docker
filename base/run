@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# By default, it's to run ssh agent
+/sbin/my_init
+
+# Or, modify this to run an arbitrary command.
+# Note: run it in foreground.
+# /sbin/my_init -- /usr/sbin/nginx -c /etc/nginx/nginx.conf -g "daemon off;"

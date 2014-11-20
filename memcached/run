@@ -1,3 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
-exec /usr/share/memcached/scripts/start-memcached
+# TODO (wenbin): change -m 512 to use environment variable
+/sbin/my_init -- /usr/bin/memcached -m 512 -p 11211 -u root -l 0.0.0.0

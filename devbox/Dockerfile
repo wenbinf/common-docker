@@ -9,7 +9,7 @@ MAINTAINER Wenbin Fang <wenbin@cs.wisc.edu>
 # Install some development tools
 
 RUN apt-get -qq update
-RUN apt-get -qq install emacs tmux python gcc g++ git wget unzip
+RUN apt-get -qq install emacs tmux python gcc g++ git wget unzip python-pip
 
 # Install dotfiles
 ADD conf/tmux.conf /root/.tmux.conf

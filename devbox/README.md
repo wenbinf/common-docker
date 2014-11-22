@@ -21,6 +21,12 @@ SSH into it:
     chmod 600 ~/.ssh/insecure_key
     ssh -i ~/.ssh/insecure_key root@$(docker inspect -f "{{ .NetworkSettings.IPAddress }}" devbox)
 
-You can add an alias to ~/.bashrc, e.g.,
+You can add this shortcut to ~/.bashrc, e.g.,
 
-    alias ssh-devbox="ssh -i ~/.ssh/insecure_key root@$(docker inspect -f "{{ .NetworkSettings.IPAddress }}" devbox)"
+    ssh_devbox() {
+        ssh -i ~/.ssh/insecure_key root@$(docker inspect -f "{{ .NetworkSettings.IPAddress }}" devbox)
+    }
+
+So you can use such command to login devbox:
+    
+    ssh_devbox

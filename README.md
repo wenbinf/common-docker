@@ -11,6 +11,12 @@ SSH into it (Replace $NAME with the container's name):
     chmod 600 ~/.ssh/insecure_key
     ssh -i ~/.ssh/insecure_key root@$(docker inspect -f "{{ .NetworkSettings.IPAddress }}" $NAME)
 
-You can add an alias to ~/.bashrc, e.g.,
+You can add this shortcut to ~/.bashrc, e.g.,
 
-    alias ssh-devbox="ssh -i ~/.ssh/insecure_key root@$(docker inspect -f "{{ .NetworkSettings.IPAddress }}" $NAME)"
+    ssh_container() {
+        ssh -i ~/.ssh/insecure_key root@$(docker inspect -f "{{ .NetworkSettings.IPAddress }}" $1)
+    }
+
+So you can use such command to login any container:
+    
+    ssh_container $CONTAINER_NAME

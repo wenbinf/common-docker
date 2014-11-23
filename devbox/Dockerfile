@@ -18,7 +18,8 @@ RUN apt-get -qq update &&  apt-get -qq install \
     wget \
     unzip \
     python-pip \
-    libpq-dev
+    libpq-dev \
+    postgresql-client
 
 # Install dotfiles
 ADD conf/tmux.conf /root/.tmux.conf

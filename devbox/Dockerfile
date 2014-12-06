@@ -21,6 +21,8 @@ RUN apt-get -qq update &&  apt-get -qq install \
     libpq-dev \
     postgresql-client
 
+RUN pip install virtualenv
+
 # Install dotfiles
 ADD conf/tmux.conf /root/.tmux.conf
 RUN cd /tmp && \

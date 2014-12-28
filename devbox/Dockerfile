@@ -19,9 +19,11 @@ RUN apt-get -qq update &&  apt-get -qq install \
     unzip \
     python-pip \
     libpq-dev \
-    postgresql-client
-
-RUN pip install virtualenv
+    redis-tools \
+    postgresql-client && \
+    pip install virtualenv && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install dotfiles
 ADD conf/tmux.conf /root/.tmux.conf
@@ -30,6 +32,3 @@ RUN cd /tmp && \
     unzip master.zip && \
     rm -rf /root/.emacs.d && \
     mv /tmp/emacs.d-master /root/.emacs.d
-
-# Clean up.
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

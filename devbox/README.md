@@ -15,6 +15,27 @@ Run it:
     #                              See /etc/hosts inside devbox container for hostname/ip.
     docker run -d --name devbox -v ~/src:/root/src -p 22 wenbinf/devbox
 
+## Two ways to log into the container
+
+### Via docker exec
+
+Run this (need docker > 1.3):
+
+    docker exec -it devbox /bin/bash
+
+You can add this shortcut to ~/.bashrc, e.g.,
+
+    ssh_devbox() {
+        docker exec -it devbox /bin/bash
+    }
+
+So you can use such command to login devbox:
+    
+    ssh_devbox
+
+
+### Via SSH
+
 SSH into it:
 
     curl -o ~/.ssh/insecure_key -fSL https://github.com/phusion/baseimage-docker/raw/master/image/insecure_key
